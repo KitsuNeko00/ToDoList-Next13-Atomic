@@ -2,12 +2,12 @@
   "todos": [
     {
       "id": 1,
-      "todo": "React 공부하기",
+      "toDo": "React 공부하기",
       "isDone": false
     },
     {
       "id": 2,
-      "todo": "Next.Js 공부하기",
+      "toDo": "Next.Js 공부하기",
       "isDone": false
     }
   ]

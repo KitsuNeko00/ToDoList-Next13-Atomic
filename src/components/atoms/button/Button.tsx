@@ -1,4 +1,5 @@
 import styles from "./Button.module.scss";
+import ClientProvider from "@/clientProvider/ClientProvider";
 
 interface IProps {
   content: string;

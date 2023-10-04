@@ -1,1 +1,21 @@
-//home 페이지 querye들
+import { getToDosApi } from "@/api/home/home";
+import { QUERY_KEYS } from "@/constants/queryKeys";
+import { useQuery } from "@tanstack/react-query";
+
+const useGetToDosQuery = (): IGetToDos => {
+  const getToDosQueryResult = useQuery({
+    queryKey: QUERY_KEYS.TODOS,
+    queryFn: () => {
+      return getToDosApi();
+    },
+    onSuccess: (data) => {
+      console.log(data);
+    },
+  });
+  const toDos = getToDosQueryResult.data?.data;
+  const isToDosLoading = getToDosQueryResult.isLoading;
+  const isToDosError = getToDosQueryResult.isError;
+  return { toDos, isToDosLoading, isToDosError };
+};
+
+export { useGetToDosQuery };

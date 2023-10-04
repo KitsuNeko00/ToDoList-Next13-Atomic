@@ -1,6 +1,7 @@
 import Head from "next/head";
 import "./globals.css";
 import type { Metadata } from "next";
+import Providers from "./Provider";
 
 export const metadata: Metadata = {
   title: "To do list",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

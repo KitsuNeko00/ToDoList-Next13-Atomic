@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 
-const addToDoApi = (): Promise<AxiosResponse> => {
+const getToDosApi = (): Promise<AxiosResponse> => {
   try {
-    const response = axios.get("https://jsonplaceholder.typicode.com/todos/1");
+    const response = axios.get("http://localhost:8080/todos");
     return response;
   } catch (error) {
     console.log(error);
@@ -10,4 +10,4 @@ const addToDoApi = (): Promise<AxiosResponse> => {
   }
 };
 
-export { addToDoApi };
+export { getToDosApi };
