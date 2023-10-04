@@ -7,7 +7,7 @@ interface IProps {
 }
 
 function ListContent({ toDo }: IProps): JSX.Element {
-  const { toDos, isToDosLoading, isToDosError }: IGetToDos = useGetToDos();
+  const { toDos }: IGetToDos = useGetToDos();
   console.log("toDOs :", toDos);
   return (
     <>
