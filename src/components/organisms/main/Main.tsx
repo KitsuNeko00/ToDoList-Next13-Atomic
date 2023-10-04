@@ -5,7 +5,7 @@ import styles from "./Main.module.scss";
 import useGetToDos from "@/hooks/home/useGetToDos";
 import Title from "@/components/atoms/title/Title";
 import { FadeLoader } from "react-spinners";
-import { useState } from "react";
+import Loading from "@/components/common/loading/Loading";
 
 function Main(): JSX.Element {
   const { toDos, isToDosLoading, isToDosError } = useGetToDos();
@@ -20,12 +20,7 @@ function Main(): JSX.Element {
 
   return (
     <>
-      {isToDosLoading ? (
-        <div className={styles.loadingContainer}>
-          <FadeLoader color="#36d7b7" className={styles.loading} />
-          <div className={styles.loadingText}>로딩중입니다...</div>
-        </div>
-      ) : null}
+      {isToDosLoading ? <Loading /> : null}
       {!isToDosLoading && <Title title={"할 일 목록"} variant="small" />}
       {toDos?.map((toDo) => (
         <List key={toDo.id} toDo={toDo} />
