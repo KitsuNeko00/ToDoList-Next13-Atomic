@@ -2,13 +2,12 @@
 
 import List from "@/components/molecules/list/List";
 import styles from "./Main.module.scss";
-import useGetToDos from "@/hooks/home/useGetToDos";
 import Title from "@/components/atoms/title/Title";
-import { FadeLoader } from "react-spinners";
 import Loading from "@/components/common/loading/Loading";
+import { useGetToDosQuery } from "@/services/home/useGetHomeQuery";
 
 function Main(): JSX.Element {
-  const { toDos, isToDosLoading, isToDosError } = useGetToDos();
+  const { toDos, isToDosLoading, isToDosError } = useGetToDosQuery();
 
   if (isToDosError) {
     return (

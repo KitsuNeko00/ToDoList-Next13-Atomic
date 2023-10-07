@@ -1,13 +1,13 @@
 "use client";
 
-import useGetToDos from "@/hooks/home/useGetToDos";
+import { useGetToDosQuery } from "@/services/home/useGetHomeQuery";
 import styles from "./ListContent.module.scss";
 interface IProps {
   toDo: IToDo;
 }
 
 function ListContent({ toDo }: IProps): JSX.Element {
-  const { toDos }: IGetToDos = useGetToDos();
+  const { toDos }: IGetToDos = useGetToDosQuery();
   console.log("toDOs :", toDos);
   return (
     <>
