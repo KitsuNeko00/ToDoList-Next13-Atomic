@@ -1,5 +1,5 @@
 interface IToDo {
-  id: number;
+  id: string;
   toDo: string;
   isDone: boolean;
 }

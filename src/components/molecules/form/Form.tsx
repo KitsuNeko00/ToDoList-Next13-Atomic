@@ -23,7 +23,14 @@ function Form(): JSX.Element {
             inputValue={inputValue}
             handleInputChange={handleInputChange}
           />
-          <Button content={"할 일 추가"} variant="create" type="submit" />
+          <Button
+            content={"할 일 추가"}
+            variant="create"
+            type="submit"
+            onClick={(e: React.FormEvent) => {
+              handleSubmit(e);
+            }}
+          />
         </div>
       </div>
     </form>

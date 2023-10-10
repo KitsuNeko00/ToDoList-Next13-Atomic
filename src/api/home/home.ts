@@ -1,8 +1,10 @@
 import axios, { AxiosResponse } from "axios";
 
+const BASE_URL = "http://localhost:8080/todos";
+
 const getToDosApi = (): Promise<AxiosResponse> => {
   try {
-    const response = axios.get("http://localhost:8080/todos");
+    const response = axios.get(BASE_URL);
     return response;
   } catch (error) {
     console.log(error);
@@ -16,7 +18,7 @@ const addToDoApi = (addToDoformData: string): Promise<AxiosResponse> => {
       toDo: addToDoformData,
       isDone: false,
     };
-    const response = axios.post("http://localhost:8080/todos", data);
+    const response = axios.post(BASE_URL, data);
     return response;
   } catch (error) {
     console.log(error);
@@ -24,4 +26,14 @@ const addToDoApi = (addToDoformData: string): Promise<AxiosResponse> => {
   }
 };
 
-export { getToDosApi, addToDoApi };
+const deleteToDoApi = (id: string): Promise<AxiosResponse> => {
+  try {
+    const response = axios.delete(BASE_URL + "/" + id);
+    return response;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export { getToDosApi, addToDoApi, deleteToDoApi };
