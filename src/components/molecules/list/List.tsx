@@ -8,6 +8,7 @@ interface IProps {
 }
 
 function List({ toDo }: IProps): JSX.Element {
+  const { handleDeleteToDo } = useDeleteToDo();
   return (
     <>
       <div className={styles.container}>
@@ -16,7 +17,9 @@ function List({ toDo }: IProps): JSX.Element {
           content={"삭제"}
           variant="delete"
           type="button"
-          onClick={useDeleteToDo(toDo.id)}
+          onClick={() => {
+            handleDeleteToDo(toDo.id);
+          }}
         />
       </div>
     </>
