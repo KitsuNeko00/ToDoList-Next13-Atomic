@@ -11,7 +11,7 @@ function List({ toDo }: IProps): JSX.Element {
     <>
       <div className={styles.container}>
         <ListContent toDo={toDo} />
-        <Button content={"삭제"} variant="delete" />
+        <Button content={"삭제"} variant="delete" type="button" />
       </div>
     </>
   );

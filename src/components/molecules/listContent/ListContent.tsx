@@ -1,14 +1,11 @@
 "use client";
 
-import { useGetToDosQuery } from "@/services/home/useGetHomeQuery";
 import styles from "./ListContent.module.scss";
 interface IProps {
   toDo: IToDo;
 }
 
 function ListContent({ toDo }: IProps): JSX.Element {
-  const { toDos }: IGetToDos = useGetToDosQuery();
-  console.log("toDOs :", toDos);
   return (
     <>
       <div className={styles.container}>

@@ -4,7 +4,7 @@ import List from "@/components/molecules/list/List";
 import styles from "./Main.module.scss";
 import Title from "@/components/atoms/title/Title";
 import Loading from "@/components/common/loading/Loading";
-import { useGetToDosQuery } from "@/services/home/useGetHomeQuery";
+import { useGetToDosQuery } from "@/services/home/queries/useGetHomeQuery";
 
 function Main(): JSX.Element {
   const { toDos, isToDosLoading, isToDosError } = useGetToDosQuery();

@@ -10,4 +10,18 @@ const getToDosApi = (): Promise<AxiosResponse> => {
   }
 };
 
-export { getToDosApi };
+const addToDoApi = (addToDoformData: string): Promise<AxiosResponse> => {
+  try {
+    const data = {
+      toDo: addToDoformData,
+      isDone: false,
+    };
+    const response = axios.post("http://localhost:8080/todos", data);
+    return response;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export { getToDosApi, addToDoApi };
