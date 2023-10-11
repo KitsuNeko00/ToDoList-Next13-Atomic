@@ -36,4 +36,21 @@ const deleteToDoApi = (id: string): Promise<AxiosResponse> => {
   }
 };
 
-export { getToDosApi, addToDoApi, deleteToDoApi };
+const updateIsDonApi = ({
+  toDo,
+  updatedIsDone,
+}: IUpdateIsDoneProps): Promise<AxiosResponse> => {
+  try {
+    const data = {
+      ...toDo,
+      isDone: updatedIsDone,
+    };
+    const response = axios.put(`http://localhost:8080/todos/${toDo.id}`, data);
+    return response;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export { getToDosApi, addToDoApi, deleteToDoApi, updateIsDonApi };

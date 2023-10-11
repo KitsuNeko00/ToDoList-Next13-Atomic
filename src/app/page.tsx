@@ -1,10 +1,9 @@
-import Template from "@/components/templates/Template";
-import styles from "./page.module.scss";
+import HomeTemplate from "@/components/templates/homeTemplate/HomeTemplate";
 
 export default function Home() {
   return (
     <>
-      <Template />
+      <HomeTemplate />
     </>
   );
 }

@@ -8,9 +8,6 @@ function useGetToDosQuery(): IGetToDos {
     queryFn: () => {
       return getToDosApi();
     },
-    onSuccess: (data) => {
-      console.log(data);
-    },
   });
   const toDos = getToDosQueryResult.data?.data;
   const isToDosLoading = getToDosQueryResult.isLoading;

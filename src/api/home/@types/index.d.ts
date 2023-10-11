@@ -9,3 +9,8 @@ interface IGetToDos {
   isToDosLoading: boolean;
   isToDosError: boolean;
 }
+
+interface IUpdateIsDoneProps {
+  toDo: IToDo;
+  updatedIsDone: boolean;
+}

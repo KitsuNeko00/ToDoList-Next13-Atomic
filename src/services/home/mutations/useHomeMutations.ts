@@ -1,4 +1,4 @@
-import { addToDoApi, deleteToDoApi } from "@/api/home/home";
+import { addToDoApi, deleteToDoApi, updateIsDonApi } from "@/api/home/home";
 import { QUERY_KEYS } from "@/constants/queryKeys";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -12,6 +12,10 @@ interface IUseDeleteToDoMutation {
   mutateDeleteToDo: (id: string) => void;
   isDeleteToDoLoading: boolean;
   isDeleteToDoError: boolean;
+}
+
+interface IUseUpdateIsDoneMutation {
+  mutateUpdateIsDone: ({ toDo, updatedIsDone }: IUpdateIsDoneProps) => void;
 }
 
 function useAddToDoMutation(): IUseAddToDoMutation {
@@ -50,4 +54,19 @@ function useDeleteToDoMutation(): IUseDeleteToDoMutation {
   return { mutateDeleteToDo, isDeleteToDoLoading, isDeleteToDoError };
 }
 
-export { useAddToDoMutation, useDeleteToDoMutation };
+function useUpdateIsDoneMutation(): IUseUpdateIsDoneMutation {
+  const queryClient = useQueryClient();
+  const updateIsDoneMutation = useMutation({
+    mutationFn: ({ toDo, updatedIsDone }: IUpdateIsDoneProps) => {
+      return updateIsDonApi({ toDo, updatedIsDone });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(QUERY_KEYS.TODOS);
+    },
+  });
+
+  const mutateUpdateIsDone = updateIsDoneMutation.mutate;
+  return { mutateUpdateIsDone };
+}
+
+export { useAddToDoMutation, useDeleteToDoMutation, useUpdateIsDoneMutation };

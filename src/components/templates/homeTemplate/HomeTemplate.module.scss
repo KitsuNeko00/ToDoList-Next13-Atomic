@@ -2,16 +2,15 @@
   // height: 100vh;
   .container {
     /* 모바일 기본 스타일 */
-    width: 300px;
+    width: 90%;
     height: 600px;
     margin: 0 auto;
     margin-top: 20px;
-    // border: 1px solid black;
     font-size: 16px;
 
     /* 태블릿 이상 */
     @media (min-width: 768px) {
-      width: 600px;
+      width: 80%;
       height: 800px;
       font-size: 18px;
       margin-top: 30px;

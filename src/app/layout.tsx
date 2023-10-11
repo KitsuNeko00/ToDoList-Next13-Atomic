@@ -1,7 +1,7 @@
-import Head from "next/head";
 import "./globals.css";
 import type { Metadata } from "next";
 import Providers from "./Provider";
+import Title from "@/components/atoms/title/Title";
 
 export const metadata: Metadata = {
   title: "To do list",
@@ -16,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Title title={"To do list"} variant="big" />
+        <Providers>
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );
