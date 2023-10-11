@@ -2,7 +2,7 @@
   "toDos": [
     {
       "toDo": "React 공부하기",
-      "isDone": false,
+      "isDone": true,
       "id": 1
     },
     {
@@ -11,7 +11,7 @@
       "id": 2
     },
     {
-      "toDo": "안녕",
+      "toDo": "Backend 공부하기",
       "isDone": false,
       "id": 3
     }

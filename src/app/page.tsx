@@ -1,9 +1,11 @@
-import HomeTemplate from "@/components/templates/homeTemplate/HomeTemplate";
+import HomeTemplate from "@/components/templates/home/HomeTemplate";
 
-export default function Home() {
+function Home() {
   return (
     <>
       <HomeTemplate />
     </>
   );
 }
+
+export default Home;

@@ -1,13 +1,19 @@
 "use client";
 
+import React from "react";
 import List from "@/components/molecules/list/List";
 import styles from "./Main.module.scss";
 import Title from "@/components/atoms/title/Title";
 import Loading from "@/components/common/loading/Loading";
 import { useGetToDosQuery } from "@/services/home/queries/useGetHomeQuery";
 
-function Main(): JSX.Element {
-  const { toDos, isToDosLoading, isToDosError } = useGetToDosQuery();
+interface MainProps {
+  title: string;
+  toDos: IToDo[] | undefined;
+}
+
+function Main({ title, toDos }: MainProps): JSX.Element {
+  const { isToDosLoading, isToDosError } = useGetToDosQuery();
 
   if (isToDosError) {
     return (
@@ -17,10 +23,14 @@ function Main(): JSX.Element {
     );
   }
 
+  if (!isToDosLoading && toDos && toDos.length === 0) {
+    return <p className={styles.nothing}>한 일이 없어요...</p>;
+  }
+
   return (
     <>
       {isToDosLoading ? <Loading /> : null}
-      {!isToDosLoading && <Title title={"할 일 목록"} variant="small" />}
+      {!isToDosLoading && <Title title={title} variant="small" />}
       {toDos?.map((toDo) => (
         <List key={toDo.id} toDo={toDo} />
       ))}

@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Providers from "./Provider";
 import Title from "@/components/atoms/title/Title";
+import NavBar from "@/components/molecules/navBar/NavBar";
+import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
   title: "To do list",
@@ -17,6 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Title title={"To do list"} variant="big" />
+        <div className={styles.navBarContainer}>
+          <NavBar />
+        </div>
         <Providers>
           <main>{children}</main>
         </Providers>
