@@ -4,9 +4,8 @@ import Main from "@/components/organisms/main/Main";
 import CommonTemplate from "../common/CommonTemplate";
 import useFilteredToDos from "@/hooks/useFilteredToDos/useFilteredToDos";
 
-function DoneToDoTemplate(): JSX.Element {
-  const { filteredToDos } = useFilteredToDos(true);
-
+function DidNotYetTemplate(): JSX.Element {
+  const { filteredToDos } = useFilteredToDos(false);
   return (
     <>
       <CommonTemplate>
@@ -16,4 +15,4 @@ function DoneToDoTemplate(): JSX.Element {
   );
 }
 
-export default DoneToDoTemplate;
+export default DidNotYetTemplate;

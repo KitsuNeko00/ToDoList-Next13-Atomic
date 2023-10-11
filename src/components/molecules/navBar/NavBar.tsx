@@ -25,7 +25,7 @@ function NavBar(): JSX.Element {
           color="inherit"
           href="/doneToDo"
         >
-          이미 한 일들
+          한 일들
         </Link>
         <Link
           underline={isActive("/didNotYet") ? "always" : "hover"}
