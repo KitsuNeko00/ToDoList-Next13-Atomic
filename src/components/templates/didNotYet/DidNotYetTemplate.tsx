@@ -9,7 +9,7 @@ function DidNotYetTemplate(): JSX.Element {
   return (
     <>
       <CommonTemplate>
-        <Main title="한 일 목록" toDos={filteredToDos} />
+        <Main title="아직 안 한 일 목록" toDos={filteredToDos} />
       </CommonTemplate>
     </>
   );

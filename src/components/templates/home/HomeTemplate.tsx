@@ -11,7 +11,7 @@ function HomeTemplate(): JSX.Element {
     <>
       <CommonTemplate>
         <Form />
-        <Main title="할 일 목록" toDos={toDos} />
+        <Main title="전체 목록" toDos={toDos} />
       </CommonTemplate>
     </>
   );
