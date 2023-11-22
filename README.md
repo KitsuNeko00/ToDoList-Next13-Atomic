@@ -1,4 +1,4 @@
-# Next.Js 13 To-Do-List (Atomic Design Pattern)
+## Next.Js 13 To-Do-List (Atomic Design Pattern)
 `
 $ npm i
 `
@@ -16,7 +16,16 @@ $ npm run dev `
 
 Next.Js 13 버전과 Atomic 디자인 패턴을 연습하기 위한 To-Do-List
 
-# Tech Stack
+## 초기 화면 (Home)
+<img src="./public/images/KakaoTalk_20231123_014536317.png">
+
+## 한 일들
+<img src="./public/images/KakaoTalk_20231123_014549878.png">
+
+## 아직 안 한 일들
+<img src="./public/images/KakaoTalk_20231123_014600762.png">
+
+## Tech Stack
 1. Next.Js 13
 2. Tanstack/React-query
 3. Typescript
