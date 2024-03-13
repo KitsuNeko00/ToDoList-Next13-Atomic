@@ -1,5 +1,5 @@
 import { addToDoApi, deleteToDoApi, updateIsDonApi } from "@/api/home/home";
-import { QUERY_KEYS } from "@/constants/queryKeys";
+import { toDoKeys } from "@/constants/queryKeys";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 interface IUseAddToDoMutation {
@@ -20,53 +20,43 @@ interface IUseUpdateIsDoneMutation {
 
 function useAddToDoMutation(): IUseAddToDoMutation {
   const queryClient = useQueryClient();
-  const addToDoMutation = useMutation({
-    mutationFn: (addToDoformData: string) => {
-      return addToDoApi(addToDoformData);
-    },
+  const addToDoMutation = useMutation(addToDoApi, {
     onSuccess: () => {
-      queryClient.invalidateQueries(QUERY_KEYS.TODOS);
+      queryClient.invalidateQueries(toDoKeys.all);
     },
   });
 
-  const mutateAddToDo = addToDoMutation.mutate;
-  const isAddToDoLoading = addToDoMutation.isLoading;
-  const isAddToDoError = addToDoMutation.isError;
-
-  return { mutateAddToDo, isAddToDoLoading, isAddToDoError };
+  return {
+    mutateAddToDo: addToDoMutation.mutate,
+    isAddToDoLoading: addToDoMutation.isLoading,
+    isAddToDoError: addToDoMutation.isError,
+  };
 }
 
 function useDeleteToDoMutation(): IUseDeleteToDoMutation {
   const queryClient = useQueryClient();
-  const deleteToDoMutation = useMutation({
-    mutationFn: (id: string) => {
-      return deleteToDoApi(id);
-    },
+  const deleteToDoMutation = useMutation(deleteToDoApi, {
     onSuccess: () => {
-      queryClient.invalidateQueries(QUERY_KEYS.TODOS);
+      queryClient.invalidateQueries(toDoKeys.all);
     },
   });
 
-  const mutateDeleteToDo = deleteToDoMutation.mutate;
-  const isDeleteToDoLoading = deleteToDoMutation.isLoading;
-  const isDeleteToDoError = deleteToDoMutation.isError;
-
-  return { mutateDeleteToDo, isDeleteToDoLoading, isDeleteToDoError };
+  return {
+    mutateDeleteToDo: deleteToDoMutation.mutate,
+    isDeleteToDoLoading: deleteToDoMutation.isLoading,
+    isDeleteToDoError: deleteToDoMutation.isError,
+  };
 }
 
 function useUpdateIsDoneMutation(): IUseUpdateIsDoneMutation {
   const queryClient = useQueryClient();
-  const updateIsDoneMutation = useMutation({
-    mutationFn: ({ toDo, updatedIsDone }: IUpdateIsDoneProps) => {
-      return updateIsDonApi({ toDo, updatedIsDone });
-    },
+  const updateIsDoneMutation = useMutation(updateIsDonApi, {
     onSuccess: () => {
-      queryClient.invalidateQueries(QUERY_KEYS.TODOS);
+      queryClient.invalidateQueries(toDoKeys.all);
     },
   });
 
-  const mutateUpdateIsDone = updateIsDoneMutation.mutate;
-  return { mutateUpdateIsDone };
+  return { mutateUpdateIsDone: updateIsDoneMutation.mutate };
 }
 
 export { useAddToDoMutation, useDeleteToDoMutation, useUpdateIsDoneMutation };

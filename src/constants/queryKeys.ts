@@ -1,7 +1,7 @@
-interface IQUERY_KEYS {
-  TODOS: [string];
+interface IToDoKeys {
+  all: [string];
 }
 
-export const QUERY_KEYS: IQUERY_KEYS = {
-  TODOS: ["todos"],
+export const toDoKeys: IToDoKeys = {
+  all: ["toDos"],
 };
